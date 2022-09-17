@@ -1,8 +1,5 @@
 import React from "react";
 import axios from "axios";
-import "./Taskitem.css";
-import checkIcon from "../../assets/check-solid.svg";
-import xIcon from "../../assets/xmark-solid.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faCheck } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,6 +8,7 @@ function Taskitem(props) {
   const { tasks, setTasks, filterTasks, showTasks, getTasksCall, logout } =
     props;
 
+  // token auth
   async function refreshTokens(func, task) {
     let refreshToken = sessionStorage.getItem("refreshjwt");
     return axios
@@ -28,7 +26,7 @@ function Taskitem(props) {
       });
   }
 
-  // API FUNCTIONS
+  // API call: Done
   async function taskDoneCall(task) {
     let done;
     let id = task._id;
@@ -49,7 +47,7 @@ function Taskitem(props) {
       });
   }
 
-  // DELETE
+  // API call: Delete
   async function taskDeleteCall(task) {
     await axios
       .delete(`https://pereira277todoapi.herokuapp.com/dashboard/${task._id}`)
@@ -61,6 +59,14 @@ function Taskitem(props) {
         await refreshTokens(taskDeleteCall, task);
       });
     getTasksCall();
+  }
+
+  // Clear done tasks
+  async function clearCompleted() {
+    let doneTasks = tasks.filter((item) => item.done === true);
+    for (let i = 0; i < doneTasks.length; i++) {
+      await taskDeleteCall(doneTasks[i]);
+    }
   }
 
   return (
@@ -100,8 +106,8 @@ function Taskitem(props) {
         )}
       </ul>
       <div className="tasklist-buttons">
-        <span>x items left</span>
-        <button>Clear Completed</button>
+        <span>{`${(tasks.filter((item) => item.done === false)).length} items left`}</span>
+        <button onClick={() => clearCompleted()} className="clear-completed">Clear Completed</button>
       </div>
     </div>
   );

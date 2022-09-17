@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import userLogo from "../assets/user.png";
-import keyLogo from "../assets/key.png";
-
 function Register() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -55,23 +52,24 @@ function Register() {
       });
   }
   return (
-    <div>
-      <h1 className="title">Todo</h1>
+    <div className="login-main-container">
+      <h1 className="login-title">TO DO</h1>
       <form onSubmit={handleSubmit} className="login-form">
-        <div className="login-inputs user-input">
+        <div className="login-inputs">
+          <h3>Login</h3>
           <input
             placeholder="Username"
             maxLength="30"
+            className="login-input"
             onChange={(e) => {
               setName(e.target.value);
             }}
           ></input>
-        </div>
-        <div className="login-inputs password-input">
           <input
             type="password"
             placeholder="Password"
             maxLength="30"
+            className="login-input"
             onChange={(e) => {
               setPassword(e.target.value);
             }}

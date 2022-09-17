@@ -1,3 +1,10 @@
+/* Main */
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* input */
 .add-input {
   width: 90vw;
@@ -12,6 +19,25 @@
 /* dashboard */
 .dashboard-container {
   width: calc(90vw + 20px);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(90vw - 20px);
+  margin: 20px 0 20px calc(5vw + 10px);
+}
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.exit-icon {
+  color: #e6faf9;
+  opacity: 0.8;
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.4));
+  transition: 0.5s;
 }
 
 /* tasklist */
@@ -46,6 +72,7 @@
   justify-content: space-between;
   height: 50px;
   border-bottom: 0.5px solid rgba(116, 191, 196, 0.5);
+  text-overflow: "-";
 }
 .done-btn {
   width: 18px;
@@ -55,18 +82,20 @@
   border: 1px solid black;
   background: none;
   border-radius: 4px;
-  opacity: 0.2;
+  opacity: 0.6;
+  transition: 0.5s;
 }
 .check-icon {
 }
 .delete-btn {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-right: 18px;
   padding: 0;
   border: none;
   background: none;
-  opacity: 0.6;
+  opacity: 0.4;
+  transition: 0.5s;
 }
 .xmark-icon {
   height: 100%;
@@ -75,7 +104,9 @@
 
 .taskitem-text {
   width: calc(100% - 108px);
-  opacity: 0.8;
+  font-size: 14px;
+  opacity: 0.7;
+  overflow: hidden;
 }
 .taskitem-done {
   text-decoration-line: line-through;
@@ -87,4 +118,66 @@
 }
 .delete-btn-done {
   opacity: 0.2;
+}
+
+/* Filters */
+
+.filters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #e6faf9;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 50px;
+}
+.filters-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+  max-width: 300px;
+  height: 25px;
+}
+.filters-container button {
+  border: none;
+  background: none;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.selected {
+  text-decoration-line: underline;
+  opacity: 1 !important;
+}
+
+/* Hovers */
+@media (min-width: 500px) and (hover: hover) {
+  .done-btn:hover {
+    color: green;
+    opacity: 1;
+    box-shadow: 0px 4px 50px 2px rgba(79, 255, 123, 0.69);
+    background-color: rgba(178, 255, 197, 0.4);
+  }
+  .done-btn-done:hover {
+    color: red;
+    opacity: 0.6;
+    box-shadow: 0px 4px 50px 2px rgba(255, 64, 64, 0.69);
+    background-color: rgba(255, 64, 64, 0.2);
+  }
+  .delete-btn:hover {
+    color: red;
+  }
+  .filters-container button:hover {
+    text-decoration-line: underline;
+    opacity: 1;
+  }
+  .clear-completed:hover {
+    text-decoration-line: underline;
+  }
+  .exit-icon:hover {
+    color: #e6faf9;
+    opacity: 1;
+    filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.4));
+  }
 }

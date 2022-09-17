@@ -3,6 +3,9 @@ import Input from "../components/input/Input";
 import Tasklist from "../components/tasklist/Tasklist";
 import axios from "axios";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
+
 
 function Dashboard() {
   const isMounted = useRef(false);
@@ -21,7 +24,7 @@ function Dashboard() {
     }
   );
 
-  // fecth from API
+  // API call: Get tasks
   useEffect(() => {
     if (sessionStorage.getItem("jwt") === null) {
       logout();
@@ -90,7 +93,10 @@ function Dashboard() {
 
   return (
     <div className="App">
-      <h1 className="title">TO DO</h1>
+      <div className="header">
+        <h1 className="title">TO DO</h1>
+        <FontAwesomeIcon icon={faArrowRightFromBracket} className="exit-icon" onClick={() => logout()}/>
+      </div>
       <div className="main-container">
         <Input getTasksCall={getTasksCall} logout={logout} />
         <Tasklist

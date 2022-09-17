@@ -1,6 +1,5 @@
 import Taskitem from "../taskitem/Taskitem";
 import React, { useState, useEffect } from "react";
-import "./Tasklist.css";
 
 function Tasklist(props) {
   // props array destructuring
@@ -60,9 +59,8 @@ function Tasklist(props) {
       />
 
       <div className="filters-container">
-        <h3>Filters</h3>
-        <div className="filters-btn-container">
-          <button onClick={() => setFilter("All")} className="filter-all">
+        <div className="filters-buttons-container">
+        <button onClick={() => setFilter("All")} className="filter-all">
             All
           </button>
           <button onClick={() => setFilter("Active")} className="filter-active">
@@ -75,6 +73,7 @@ function Tasklist(props) {
             Done
           </button>
         </div>
+          
       </div>
     </div>
   );

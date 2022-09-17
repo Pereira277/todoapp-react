@@ -37,7 +37,6 @@ export default function Input(props) {
         createdby: "",
       })
       .then((response) => {
-        alert("Task Created");
         setName("");
         getTasksCall();
       })
@@ -52,7 +51,7 @@ export default function Input(props) {
       <form onSubmit={createTask}>
         <input
           placeholder="Create a new todo"
-          maxLength="30"
+          maxLength="50"
           className="add-input"
           value={name}
           onChange={(e) => {
