@@ -1,13 +1,23 @@
 /* Main */
 .main-container {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: calc(90vw + 20px);
+
+  max-width: 1000px;
 }
 
 /* input */
+.input-container {
+  width: 100%;
+}
+.input-container form {
+  width: 100%;
+}
 .add-input {
-  width: 90vw;
+  width: calc(100% - 20px);
   height: 45px;
   border: none;
   border-radius: 10px;
@@ -18,14 +28,15 @@
 
 /* dashboard */
 .dashboard-container {
-  width: calc(90vw + 20px);
+  width: 100%;
 }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: calc(90vw - 20px);
-  margin: 20px 0 20px calc(5vw + 10px);
+  width: 80vw;
+  max-width: 1000px;
+  margin: 20px auto;
 }
 .title {
   font-weight: 700;
@@ -42,6 +53,7 @@
 
 /* tasklist */
 .tasklist-container {
+  width: 100%;
   margin-top: 20px;
   border: none;
   border-radius: 10px;

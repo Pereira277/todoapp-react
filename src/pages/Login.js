@@ -55,26 +55,24 @@ function Register() {
     <div className="login-main-container">
       <h1 className="login-title">TO DO</h1>
       <form onSubmit={handleSubmit} className="login-form">
-        <div className="login-inputs">
-          <h3>Login</h3>
-          <input
-            placeholder="Username"
-            maxLength="30"
-            className="login-input"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          ></input>
-          <input
-            type="password"
-            placeholder="Password"
-            maxLength="30"
-            className="login-input"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          ></input>
-        </div>
+        <h3>Login</h3>
+        <input
+          placeholder="Username"
+          maxLength="30"
+          className="login-input"
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        ></input>
+        <input
+          type="password"
+          placeholder="Password"
+          maxLength="30"
+          className="login-input"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        ></input>
 
         <button
           type="submit"

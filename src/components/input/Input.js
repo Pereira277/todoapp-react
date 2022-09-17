@@ -47,7 +47,7 @@ export default function Input(props) {
   };
 
   return (
-    <div>
+    <div className="input-container">
       <form onSubmit={createTask}>
         <input
           placeholder="Create a new todo"
