@@ -98,6 +98,7 @@
   transition: 0.5s;
 }
 .check-icon {
+  display: none;
 }
 .delete-btn {
   width: 18px;
@@ -161,6 +162,12 @@
 .selected {
   text-decoration-line: underline;
   opacity: 1 !important;
+}
+.show {
+  display: block;
+}
+.dont-show {
+  display: none;
 }
 
 /* Hovers */

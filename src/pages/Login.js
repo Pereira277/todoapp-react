@@ -49,8 +49,7 @@ function Register() {
           }}
         ></input>
         <p>
-          Dont have a user?{" "}
-          <a onClick={() => navigate("/Register")}>Click here</a>
+          New user? <a onClick={() => navigate("/Register")}>Click here</a>
         </p>
 
         <button

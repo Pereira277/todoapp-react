@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 import axios from "axios";
 
 function Register() {
@@ -30,7 +33,10 @@ function Register() {
     <div className="login-main-container">
       <h1 className="login-title">TO DO</h1>
       <form onSubmit={createUser} className="login-form">
-        <h3>Register</h3>
+        <div className="form-title">
+          <h3>Register</h3>
+          <FontAwesomeIcon icon={faArrowLeft} className="arrow-icon" />
+        </div>
         <input
           placeholder="Username"
           maxLength="30"

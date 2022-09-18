@@ -19,6 +19,13 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.form-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 0;
+}
 .login-form h3 {
   width: 100%;
   font-weight: 700;
@@ -26,6 +33,12 @@
   line-height: 18px;
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.arrow-icon {
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  height: 15px;
+  width: 15px;
 }
 .login-inputs {
   width: 80vw;
@@ -58,15 +71,20 @@
   height: 35px;
   max-width: 200px;
   background: rgba(255, 253, 253, 0.8);
+  color: rgba(0, 0, 0, 0.603);
+  font-size: 16px;
+  font-weight: 700;
   border-radius: 50px;
   border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .login-form p {
-  margin: 0 0 0 15px;
+  margin: 0 0 0 10px;
+  font-weight: 700;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.37);
+  color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  text-align: left;
+  text-align: center;
 }
 .login-form a {
   text-decoration: underline;
@@ -80,6 +98,9 @@
     cursor: pointer;
   }
   .login-form a:hover {
+    cursor: pointer;
+  }
+  .arrow-icon:hover {
     cursor: pointer;
   }
 }

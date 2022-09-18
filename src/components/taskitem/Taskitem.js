@@ -79,7 +79,7 @@ function Taskitem(props) {
                 onClick={() => taskDoneCall(task)}
                 className="done-btn done-btn-done"
               >
-                <FontAwesomeIcon icon={faCheck} className="check-icon" />
+                <FontAwesomeIcon icon={faCheck} className="check-icon show" />
               </button>
               <span className="taskitem-text taskitem-done">{task.name}</span>
               <button
@@ -105,10 +105,26 @@ function Taskitem(props) {
           )
         )}
       </ul>
-      <div className="tasklist-buttons">
-        <span>{`${(tasks.filter((item) => item.done === false)).length} items left`}</span>
-        <button onClick={() => clearCompleted()} className="clear-completed">Clear Completed</button>
-      </div>
+
+      {tasks.length < 1 ? (
+        <div className="tasklist-buttons dont-show">
+          <span>{`${
+            tasks.filter((item) => item.done === false).length
+          } items left`}</span>
+          <button onClick={() => clearCompleted()} className="clear-completed">
+            Clear Completed
+          </button>
+        </div>
+      ) : (
+        <div className="tasklist-buttons">
+          <span>{`${
+            tasks.filter((item) => item.done === false).length
+          } items left`}</span>
+          <button onClick={() => clearCompleted()} className="clear-completed">
+            Clear Completed
+          </button>
+        </div>
+      )}
     </div>
   );
 }

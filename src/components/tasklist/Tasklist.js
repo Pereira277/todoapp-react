@@ -14,6 +14,8 @@ function Tasklist(props) {
     let active = document.querySelector(".filter-active");
     let completed = document.querySelector(".filter-completed");
     let all = document.querySelector(".filter-all");
+    let filtersContainer = document.querySelector(".filters-container");
+    let tasklistContainer = document.querySelector(".tasklist-container");
 
     if (filter === "Active") {
       setShowTasks(tasks.filter((item) => item.done === false));
@@ -33,15 +35,6 @@ function Tasklist(props) {
     }
   }
 
-  function toggleOptions() {
-    var optionsMenu = document.querySelector(".options");
-    if (optionsMenu.classList.contains("options-active")) {
-      optionsMenu.classList.remove("options-active");
-    } else {
-      optionsMenu.classList.add("options-active");
-    }
-  }
-
   //   useEffect
   useEffect(() => {
     filterTasks();
@@ -58,23 +51,47 @@ function Tasklist(props) {
         logout={logout}
       />
 
-      <div className="filters-container">
-        <div className="filters-buttons-container">
-        <button onClick={() => setFilter("All")} className="filter-all">
-            All
-          </button>
-          <button onClick={() => setFilter("Active")} className="filter-active">
-            Active
-          </button>
-          <button
-            onClick={() => setFilter("Completed")}
-            className="filter-completed"
-          >
-            Done
-          </button>
+      {tasks.length < 1 ? (
+        <div className="filters-container dont-show">
+          <div className="filters-buttons-container">
+            <button onClick={() => setFilter("All")} className="filter-all">
+              All
+            </button>
+            <button
+              onClick={() => setFilter("Active")}
+              className="filter-active"
+            >
+              Active
+            </button>
+            <button
+              onClick={() => setFilter("Completed")}
+              className="filter-completed"
+            >
+              Done
+            </button>
+          </div>
         </div>
-          
-      </div>
+      ) : (
+        <div className="filters-container">
+          <div className="filters-buttons-container">
+            <button onClick={() => setFilter("All")} className="filter-all">
+              All
+            </button>
+            <button
+              onClick={() => setFilter("Active")}
+              className="filter-active"
+            >
+              Active
+            </button>
+            <button
+              onClick={() => setFilter("Completed")}
+              className="filter-completed"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
