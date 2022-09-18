@@ -8,31 +8,6 @@ function Register() {
   const [submit, setSubmit] = useState("");
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
-    if (submit === "register") {
-      createUser(e);
-    } else {
-      userLogin(e);
-    }
-  }
-
-  function createUser(e) {
-    e.preventDefault();
-    console.log(name, password);
-
-    axios
-      .post("https://pereira277todoapi.herokuapp.com/user/create", {
-        name,
-        password,
-      })
-      .then((response) => {
-        alert("User Created");
-      })
-      .catch((error) => {
-        alert(error.response.data);
-      });
-  }
-
   function userLogin(e) {
     e.preventDefault();
 
@@ -54,12 +29,12 @@ function Register() {
   return (
     <div className="login-main-container">
       <h1 className="login-title">TO DO</h1>
-      <form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={userLogin} className="login-form">
         <h3>Login</h3>
         <input
           placeholder="Username"
           maxLength="30"
-          className="login-input"
+          className="login-input username-login-input"
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -73,6 +48,10 @@ function Register() {
             setPassword(e.target.value);
           }}
         ></input>
+        <p>
+          Dont have a user?{" "}
+          <a onClick={() => navigate("/Register")}>Click here</a>
+        </p>
 
         <button
           type="submit"
@@ -80,14 +59,6 @@ function Register() {
           onClick={() => setSubmit("login")}
         >
           Login
-        </button>
-        <p>or</p>
-        <button
-          type="submit"
-          className="register-btn"
-          onClick={() => setSubmit("register")}
-        >
-          Register
         </button>
       </form>
     </div>
