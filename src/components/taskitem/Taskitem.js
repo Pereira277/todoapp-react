@@ -12,7 +12,7 @@ function Taskitem(props) {
   async function refreshTokens(func, task) {
     let refreshToken = sessionStorage.getItem("refreshjwt");
     return axios
-      .post("https://pereira277todoapi.herokuapp.com/user/token", {
+      .post("http://54.233.95.79:3333/user/token", {
         token: refreshToken,
       })
       .then((response) => {
@@ -37,7 +37,7 @@ function Taskitem(props) {
       done = true;
     }
     await axios
-      .put("https://pereira277todoapi.herokuapp.com/dashboard/", { id, done })
+      .put("http://54.233.95.79:3333//dashboard/", { id, done })
       .then((response) => {
         getTasksCall();
       })
@@ -50,7 +50,7 @@ function Taskitem(props) {
   // API call: Delete
   async function taskDeleteCall(task) {
     await axios
-      .delete(`https://pereira277todoapi.herokuapp.com/dashboard/${task._id}`)
+      .delete(`http://54.233.95.79:3333/dashboard/${task._id}`)
       .then((response) => {
         getTasksCall();
       })

@@ -16,7 +16,7 @@ function Register() {
     console.log(name, password);
 
     axios
-      .post("https://pereira277todoapi.herokuapp.com/user/create", {
+      .post("http://54.233.95.79:3333/user/create", {
         name,
         password,
       })

@@ -12,7 +12,7 @@ export default function Input(props) {
   async function refreshTokens(e) {
     let refreshToken = sessionStorage.getItem("refreshjwt");
     return axios
-      .post("https://pereira277todoapi.herokuapp.com/user/token", {
+      .post("http://54.233.95.79:3333/user/token", {
         token: refreshToken,
       })
       .then((response) => {
@@ -31,7 +31,7 @@ export default function Input(props) {
     e.preventDefault();
     console.log(name);
     axios
-      .post("https://pereira277todoapi.herokuapp.com/dashboard/", {
+      .post("http://54.233.95.79:3333/dashboard/", {
         name,
         done,
         createdby: "",

@@ -12,7 +12,7 @@ function Register() {
     e.preventDefault();
 
     axios
-      .post("https://pereira277todoapi.herokuapp.com/user/login", {
+      .post("http://54.233.95.79:3333/user/login", {
         name,
         password,
       })

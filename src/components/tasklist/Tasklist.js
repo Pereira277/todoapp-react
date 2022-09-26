@@ -14,8 +14,6 @@ function Tasklist(props) {
     let active = document.querySelector(".filter-active");
     let completed = document.querySelector(".filter-completed");
     let all = document.querySelector(".filter-all");
-    let filtersContainer = document.querySelector(".filters-container");
-    let tasklistContainer = document.querySelector(".tasklist-container");
 
     if (filter === "Active") {
       setShowTasks(tasks.filter((item) => item.done === false));
@@ -51,27 +49,7 @@ function Tasklist(props) {
         logout={logout}
       />
 
-      {tasks.length < 1 ? (
-        <div className="filters-container dont-show">
-          <div className="filters-buttons-container">
-            <button onClick={() => setFilter("All")} className="filter-all">
-              All
-            </button>
-            <button
-              onClick={() => setFilter("Active")}
-              className="filter-active"
-            >
-              Active
-            </button>
-            <button
-              onClick={() => setFilter("Completed")}
-              className="filter-completed"
-            >
-              Done
-            </button>
-          </div>
-        </div>
-      ) : (
+      {tasks.length < 0 && (
         <div className="filters-container">
           <div className="filters-buttons-container">
             <button onClick={() => setFilter("All")} className="filter-all">

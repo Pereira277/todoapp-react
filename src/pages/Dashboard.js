@@ -4,8 +4,7 @@ import Tasklist from "../components/tasklist/Tasklist";
 import axios from "axios";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
-
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
   const isMounted = useRef(false);
@@ -37,7 +36,7 @@ function Dashboard() {
   // GET
   function getTasksCall() {
     axios
-      .get("https://pereira277todoapi.herokuapp.com/dashboard/")
+      .get("http://54.233.95.79:3333/dashboard/")
       .then((response) => {
         console.log(response.data);
         setTasks(response.data);
@@ -51,7 +50,7 @@ function Dashboard() {
   // Get current logged user
   function getUser() {
     axios
-      .get("https://pereira277todoapi.herokuapp.com/dashboard/user")
+      .get("http://54.233.95.79:3333/dashboard/user")
       .then((response) => {
         console.log(`User ${response.data} logged in`);
         setUser(response.data);
@@ -66,7 +65,7 @@ function Dashboard() {
   async function refreshTokens(func) {
     let refreshToken = sessionStorage.getItem("refreshjwt");
     return axios
-      .post("https://pereira277todoapi.herokuapp.com/user/token", {
+      .post("http://54.233.95.79:3333/user/token", {
         token: refreshToken,
       })
       .then((response) => {
@@ -83,7 +82,7 @@ function Dashboard() {
   function logout() {
     // AXIOS CALL TO REMOVE REFRESH TOKEN
     let refreshToken = sessionStorage.getItem("refreshjwt");
-    axios.post("https://pereira277todoapi.herokuapp.com/user/deletetoken", {
+    axios.post("http://54.233.95.79:3333/user/deletetoken", {
       token: refreshToken,
     });
     sessionStorage.removeItem("jwt");
@@ -95,7 +94,11 @@ function Dashboard() {
     <div className="App">
       <div className="header">
         <h1 className="title">TO DO</h1>
-        <FontAwesomeIcon icon={faArrowRightFromBracket} className="exit-icon" onClick={() => logout()}/>
+        <FontAwesomeIcon
+          icon={faArrowRightFromBracket}
+          className="exit-icon"
+          onClick={() => logout()}
+        />
       </div>
       <div className="main-container">
         <Input getTasksCall={getTasksCall} logout={logout} />
